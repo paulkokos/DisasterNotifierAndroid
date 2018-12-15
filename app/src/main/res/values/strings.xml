@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">DisasterNotifierAndroid</string>
+    <string name="app_name">Disaster Notifier</string>
+    <string name="nameKey">Title</string>
+    <string name="nameValue">Disaster Notifier</string>
+    <string name="versionKey">Version</string>
+    <string name="versionValue">Alpha</string>
+    <string name="developerKey">Dev Team</string>
+    <string name="developerValue">PaviorSoftware</string>
+    <string name="licenseKey">License</string>
+    <string name="licenseValue">MIT License</string>
+    <string name="devNoA">1st Dev</string>
+    <string name="devIK">Iordanis Kostelidis</string>
+    <string name="devNoB">2nd Dev</string>
+    <string name="devPK">Pavlos Kokozidis</string>
+    <string name="ieeeKey">Student Branch</string>
+    <string name="ieeeValue">TEI of Central Macedonia</string>
+    <string name="disasterNotifierLogo">Disaster Notifier Logo</string>
+    <string name="already_a_member_login">Already a member? Login</string>
+    <string name="create_account">Create Account</string>
+    <string name="select_the_disaster_type">Select the disaster type</string>
+    <string name="select_the_red_radius_zone_in_meters">Select the red radius zone in meters</string>
+    <string name="zero_meters">0 meters</string>
+    <string name="select_your_near_distance_in_meters_for_near_map">Select your near distance in meters (for near map)</string>
+    <string name="save">Save</string>
 </resources>

@@ -42,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button register;
     private TextView login;
     private String sharedToken;
+    private GeoLocation geoLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void initObjects() {
         authController = new AuthControllerImpl();
+        geoLocation = new GeoLocation(RegisterActivity.this);
     }
 
     private void findFirebaseTokenAsync() {
@@ -187,7 +189,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private Location getLocation() {
-        return new GeoLocation(RegisterActivity.this).getLocation();
+        return geoLocation.getLocation();
     }
 
     @Override

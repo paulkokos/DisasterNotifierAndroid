@@ -23,6 +23,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
+import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.model.spring.Auth;
@@ -105,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                 Auth login = loginAndGetAuth();
                 saveAuth(login);
                 openCentralActivity();
-            } catch (JSONException | MethodNotAllowedException | ConflictException | ForbiddenException | IOException e) {
+            } catch (JSONException | MethodNotAllowedException | ConflictException | ForbiddenException | IOException | NoContentException e) {
                 new AlertDialog
                         .Builder(LoginActivity.this)
                         .setTitle("We have a problem...")
@@ -141,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
         new AuthService(getFilesDir().getCanonicalPath(), login);
     }
 
-    private Auth loginAndGetAuth() throws JSONException, NetworkException, NotFoundException, ForbiddenException, ConflictException, UnauthorizedException, MethodNotAllowedException {
+    private Auth loginAndGetAuth() throws JSONException, NetworkException, NotFoundException, ForbiddenException, ConflictException, UnauthorizedException, MethodNotAllowedException, NoContentException {
         return authController.login(username.getText().toString(), password.getText().toString());
     }
 }

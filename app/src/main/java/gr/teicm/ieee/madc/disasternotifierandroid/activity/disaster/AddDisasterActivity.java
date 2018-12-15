@@ -27,6 +27,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
+import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.model.spring.Disaster;
@@ -150,7 +151,7 @@ public class AddDisasterActivity extends AppCompatActivity {
                             .setPositiveButton("OK", (dialog, which) -> openCentralActivity())
                             .create()
                             .show();
-                } catch (ForbiddenException | JSONException | NotFoundException | ConflictException | MethodNotAllowedException e) {
+                } catch (ForbiddenException | JSONException | NotFoundException | ConflictException | MethodNotAllowedException | NoContentException e) {
                     new AlertDialog
                             .Builder(AddDisasterActivity.this)
                             .setTitle("We have a problem...")
@@ -212,7 +213,7 @@ public class AddDisasterActivity extends AppCompatActivity {
 
     private boolean isAuthorized() {
         try {
-            new AuthService(getFilesDir().getCanonicalPath());
+            authService = new AuthService(getFilesDir().getCanonicalPath());
             return true;
         } catch (UnauthorizedException | IOException e) {
             e.printStackTrace();

@@ -9,6 +9,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
+import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.globals.AppConfig;
@@ -18,7 +19,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.service.RestStatusHandler;
 
 public class UserControllerImpl implements UserController {
     @Override
-    public void updateLocation(String authorization, Double latitude, Double longitude) throws ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, JSONException {
+    public void updateLocation(String authorization, Double latitude, Double longitude) throws ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, JSONException, NoContentException {
         NetworkService networkService = new NetworkService(HTTPMethods.PUT, AppConfig.APIMeLocation);
 
         networkService.addHeader(new AbstractMap.SimpleEntry<>("Authorization", authorization));
@@ -37,7 +38,7 @@ public class UserControllerImpl implements UserController {
     }
 
     @Override
-    public void updateToken(String authorization, String token) throws JSONException, ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException {
+    public void updateToken(String authorization, String token) throws JSONException, ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, NoContentException {
         NetworkService networkService = new NetworkService(HTTPMethods.PUT, AppConfig.APIMeToken);
 
         networkService.addHeader(new AbstractMap.SimpleEntry<>("Authorization", authorization));
@@ -45,7 +46,9 @@ public class UserControllerImpl implements UserController {
         networkService.addHeader(new AbstractMap.SimpleEntry<>("Accepts", "application/json"));
         networkService.addHeader(new AbstractMap.SimpleEntry<>("Content-Type", "application/json"));
 
-        networkService.addBody("token", String.valueOf(token));
+        networkService.addBody("firebaseToken", String.valueOf(token));
+
+        networkService.call();
 
         RestStatusHandler.isOk(
                 networkService.getStatusCode()

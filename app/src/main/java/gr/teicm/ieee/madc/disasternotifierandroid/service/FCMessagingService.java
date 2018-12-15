@@ -20,6 +20,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
+import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
 
@@ -42,7 +43,7 @@ public class FCMessagingService extends FirebaseMessagingService {
                             .getAccessToken(),
                     refreshedToken
             );
-        } catch (UnauthorizedException | MethodNotAllowedException | NotFoundException | ForbiddenException | JSONException | NetworkException | ConflictException e) {
+        } catch (UnauthorizedException | MethodNotAllowedException | NotFoundException | ForbiddenException | JSONException | NetworkException | ConflictException | NoContentException e) {
             e.printStackTrace();
         }
 

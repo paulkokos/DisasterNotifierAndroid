@@ -15,6 +15,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
+import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.globals.AppConfig;
@@ -26,7 +27,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.service.RestStatusHandler;
 
 public class DisasterControllerImpl implements DisasterController {
     @Override
-    public List<Disaster> getNear(String authorization, String nearDistance) throws JSONException, ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException {
+    public List<Disaster> getNear(String authorization, String nearDistance) throws JSONException, ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, NoContentException {
         NetworkService networkService = new NetworkService(HTTPMethods.GET, AppConfig.APINear + nearDistance);
 
         networkService.addHeader(new AbstractMap.SimpleEntry<>("Authorization", authorization));
@@ -59,7 +60,7 @@ public class DisasterControllerImpl implements DisasterController {
     }
 
     @Override
-    public Disaster get(Long id, String authorization) throws JSONException, ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException {
+    public Disaster get(Long id, String authorization) throws JSONException, ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, NoContentException {
         NetworkService networkService = new NetworkService(HTTPMethods.GET, AppConfig.APIDisaster + id);
 
         networkService.addHeader(new AbstractMap.SimpleEntry<>("Accepts", "application/json"));
@@ -76,7 +77,7 @@ public class DisasterControllerImpl implements DisasterController {
     }
 
     @Override
-    public void post(Disaster disaster, String authorization) throws ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, JSONException {
+    public void post(Disaster disaster, String authorization) throws ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, JSONException, NoContentException {
         NetworkService networkService = new NetworkService(HTTPMethods.POST, AppConfig.APIDisaster);
 
         networkService.addHeader(new AbstractMap.SimpleEntry<>("Authorization", authorization));
@@ -116,7 +117,7 @@ public class DisasterControllerImpl implements DisasterController {
     }
 
     @Override
-    public List<Disaster> get(String authorization) throws ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, JSONException {
+    public List<Disaster> get(String authorization) throws ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, JSONException, NoContentException {
         NetworkService networkService = new NetworkService(HTTPMethods.GET, AppConfig.APIDisaster);
 
 
@@ -136,7 +137,7 @@ public class DisasterControllerImpl implements DisasterController {
     }
 
     @Override
-    public List<Disaster> getMyReports(String authorization) throws ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, JSONException {
+    public List<Disaster> getMyReports(String authorization) throws ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, JSONException, NoContentException {
         NetworkService networkService = new NetworkService(HTTPMethods.GET, AppConfig.APIMeReports);
 
         networkService.addHeader(new AbstractMap.SimpleEntry<>("Authorization", authorization));

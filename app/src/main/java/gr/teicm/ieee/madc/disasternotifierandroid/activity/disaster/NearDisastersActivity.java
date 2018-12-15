@@ -34,6 +34,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
+import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.globals.AppConfig;
@@ -235,6 +236,18 @@ public class NearDisastersActivity extends AppCompatActivity implements OnMapRea
                     .show();
         } catch (UnauthorizedException e) {
             openLoginActivity();
+        } catch (NoContentException e) {
+            new AlertDialog
+                    .Builder(NearDisastersActivity.this)
+                    .setTitle("OK...")
+                    .setMessage(
+                            "You don't have any disaster near to you with the current near distance option!!"
+                                    .concat("\n")
+                                    .concat("You can check your currently near distance, go back and open the 'Settings' page!")
+                    )
+                    .setPositiveButton("OK", null)
+                    .create()
+                    .show();
         }
     }
 

@@ -35,7 +35,8 @@
             android:id="@+id/myReportsButton"
             android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@drawable/reports" />
 
         <Button
             android:id="@+id/settingsButton"

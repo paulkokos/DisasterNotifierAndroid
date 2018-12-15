@@ -22,6 +22,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
+import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.model.spring.Disaster;
@@ -73,6 +74,14 @@ public class MyReportedDisastersActivity extends AppCompatActivity {
                     .show();
         } catch (UnauthorizedException e) {
             openLoginActivity();
+        } catch (NoContentException e) {
+            new AlertDialog
+                    .Builder(MyReportedDisastersActivity.this)
+                    .setTitle("OK...")
+                    .setMessage("You don't have report any disaster yet!")
+                    .setPositiveButton("OK", null)
+                    .create()
+                    .show();
         }
 
         loadReportedDisasters();

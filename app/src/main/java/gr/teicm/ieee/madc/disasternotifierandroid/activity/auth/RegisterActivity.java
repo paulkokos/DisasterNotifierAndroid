@@ -24,6 +24,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
+import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.model.spring.Auth;
@@ -120,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Auth register = registerAndGetAuth(location);
                 saveAuth(register);
                 openCentralActivity();
-            } catch (JSONException | MethodNotAllowedException | NotFoundException | UnauthorizedException | ForbiddenException | IOException e) {
+            } catch (JSONException | MethodNotAllowedException | NotFoundException | UnauthorizedException | ForbiddenException | IOException | NoContentException e) {
                 new AlertDialog
                         .Builder(RegisterActivity.this)
                         .setTitle("We have a problem...")
@@ -157,7 +158,7 @@ public class RegisterActivity extends AppCompatActivity {
         new AuthService(getFilesDir().getCanonicalPath(), register);
     }
 
-    private Auth registerAndGetAuth(Location location) throws JSONException, NetworkException, NotFoundException, ForbiddenException, ConflictException, UnauthorizedException, MethodNotAllowedException {
+    private Auth registerAndGetAuth(Location location) throws JSONException, NetworkException, NotFoundException, ForbiddenException, ConflictException, UnauthorizedException, MethodNotAllowedException, NoContentException {
         return authController.register(
                 username.getText().toString(),
                 password.getText().toString(),

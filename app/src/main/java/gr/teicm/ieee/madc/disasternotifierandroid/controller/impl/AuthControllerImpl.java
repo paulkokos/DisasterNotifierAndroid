@@ -10,6 +10,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
+import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.globals.AppConfig;
@@ -20,7 +21,7 @@ import gr.teicm.ieee.madc.disasternotifierandroid.service.RestStatusHandler;
 
 public class AuthControllerImpl implements AuthController {
     @Override
-    public Auth login(String username, String password) throws JSONException, NetworkException, NotFoundException, ForbiddenException, ConflictException, UnauthorizedException, MethodNotAllowedException {
+    public Auth login(String username, String password) throws JSONException, NetworkException, NotFoundException, ForbiddenException, ConflictException, UnauthorizedException, MethodNotAllowedException, NoContentException {
         // Init Network Service
         NetworkService networkService = new NetworkService(HTTPMethods.POST, AppConfig.APILogin);
 
@@ -47,7 +48,7 @@ public class AuthControllerImpl implements AuthController {
             Float latitude,
             Float longitude,
             String firebaseToken
-    ) throws JSONException, NetworkException, NotFoundException, ForbiddenException, ConflictException, UnauthorizedException, MethodNotAllowedException {
+    ) throws JSONException, NetworkException, NotFoundException, ForbiddenException, ConflictException, UnauthorizedException, MethodNotAllowedException, NoContentException {
         NetworkService networkService = new NetworkService(HTTPMethods.POST, AppConfig.APIRegister);
 
         networkService.addHeader(new AbstractMap.SimpleEntry<>("Accepts", "application/json"));

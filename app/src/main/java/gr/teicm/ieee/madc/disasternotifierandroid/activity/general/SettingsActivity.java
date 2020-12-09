@@ -1,15 +1,14 @@
 package gr.teicm.ieee.madc.disasternotifierandroid.activity.general;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import gr.teicm.ieee.madc.disasternotifierandroid.ActivityIntentStart;
+import androidx.appcompat.app.AppCompatActivity;
+
 import gr.teicm.ieee.madc.disasternotifierandroid.R;
-import gr.teicm.ieee.madc.disasternotifierandroid.activity.CentralActivity;
 import gr.teicm.ieee.madc.disasternotifierandroid.globals.AppConfig;
 import gr.teicm.ieee.madc.disasternotifierandroid.service.PreferencesService;
 
@@ -79,8 +78,8 @@ public class SettingsActivity extends AppCompatActivity {
         };
     }
 
-    @Override
-    public void onBackPressed() {
-        ActivityIntentStart.doTransition(SettingsActivity.this, CentralActivity.class);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        ActivityIntentStart.doTransition(SettingsActivity.this, CentralActivity.class);
+//    }
 }

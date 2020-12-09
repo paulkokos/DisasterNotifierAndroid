@@ -2,11 +2,12 @@ package gr.teicm.ieee.madc.disasternotifierandroid.activity.auth;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -52,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         setEventHandlers();
         initObjects();
 
-        requestFirebaseTokenAsync();
+//        requestFirebaseTokenAsync();
     }
 
     private void requestFirebaseTokenAsync() {
@@ -74,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setEventHandlers() {
         login.setOnClickListener(loginClick());
-        register.setOnClickListener(registerClick());
+//        register.setOnClickListener(registerClick());
     }
 
     private void findUIObjects() {
@@ -105,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 Auth login = loginAndGetAuth();
                 saveAuth(login);
-                openCentralActivity();
+//                openCentralActivity();
             } catch (JSONException | MethodNotAllowedException | ConflictException | ForbiddenException | IOException | NoContentException e) {
                 new AlertDialog
                         .Builder(LoginActivity.this)
@@ -133,6 +134,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
     }
+
 
     private void openCentralActivity() {
         ActivityIntentStart.doTransition(LoginActivity.this, CentralActivity.class);

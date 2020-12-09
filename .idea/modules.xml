@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DisasterNotifierAndroid.iml" filepath="$PROJECT_DIR$/DisasterNotifierAndroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DisasterNotifierAndroid.iml" filepath="$PROJECT_DIR$/.idea/modules/DisasterNotifierAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/DisasterNotifierAndroid.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/DisasterNotifierAndroid.app.iml" />
     </modules>
   </component>
 </project>

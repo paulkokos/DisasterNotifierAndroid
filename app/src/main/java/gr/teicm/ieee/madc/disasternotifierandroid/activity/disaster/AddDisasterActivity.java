@@ -3,14 +3,14 @@ package gr.teicm.ieee.madc.disasternotifierandroid.activity.disaster;
 import android.app.AlertDialog;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONException;
 
@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 import gr.teicm.ieee.madc.disasternotifierandroid.ActivityIntentStart;
 import gr.teicm.ieee.madc.disasternotifierandroid.R;
-import gr.teicm.ieee.madc.disasternotifierandroid.activity.CentralActivity;
 import gr.teicm.ieee.madc.disasternotifierandroid.activity.auth.LoginActivity;
 import gr.teicm.ieee.madc.disasternotifierandroid.controller.DisasterController;
 import gr.teicm.ieee.madc.disasternotifierandroid.controller.impl.DisasterControllerImpl;
@@ -175,7 +174,7 @@ public class AddDisasterActivity extends AppCompatActivity {
     }
 
     private void openCentralActivity() {
-        ActivityIntentStart.doTransition(AddDisasterActivity.this, CentralActivity.class);
+//        ActivityIntentStart.doTransition(AddDisasterActivity.this, CentralActivity.class);
     }
 
     private boolean hasLocation() {
@@ -190,7 +189,7 @@ public class AddDisasterActivity extends AppCompatActivity {
         currentLocation = geoLocation.getLocation();
     }
 
-    @NonNull
+//    @NonNull
     private Disaster generateDisaster() {
         return new Disaster(
                 null,

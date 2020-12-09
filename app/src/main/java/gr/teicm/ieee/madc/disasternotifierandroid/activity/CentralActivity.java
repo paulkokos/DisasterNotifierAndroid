@@ -2,13 +2,12 @@ package gr.teicm.ieee.madc.disasternotifierandroid.activity;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.iid.FirebaseInstanceId;
+import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONException;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.IOException;
 
@@ -20,14 +19,6 @@ import gr.teicm.ieee.madc.disasternotifierandroid.activity.disaster.MyReportedDi
 import gr.teicm.ieee.madc.disasternotifierandroid.activity.disaster.NearDisastersActivity;
 import gr.teicm.ieee.madc.disasternotifierandroid.activity.general.AboutActivity;
 import gr.teicm.ieee.madc.disasternotifierandroid.activity.general.SettingsActivity;
-import gr.teicm.ieee.madc.disasternotifierandroid.controller.UserController;
-import gr.teicm.ieee.madc.disasternotifierandroid.controller.impl.UserControllerImpl;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
 import gr.teicm.ieee.madc.disasternotifierandroid.service.AuthService;
 import gr.teicm.ieee.madc.disasternotifierandroid.service.GeoLocation;
@@ -55,7 +46,7 @@ public class CentralActivity extends AppCompatActivity {
         setEventHandlers();
 
         if (isNotAuthorized()) {
-            openLoginActivity();
+//            openLoginActivity();
         }
 
         findAndUpdateFirebaseTokenAsync();
@@ -80,16 +71,16 @@ public class CentralActivity extends AppCompatActivity {
     }
 
     private void updateFirebaseToken(String token) {
-        UserController userController = new UserControllerImpl();
-        try {
-            userController
-                    .updateToken(
-                            authService.get().getAccessToken(),
-                            token
-                    );
-        } catch (JSONException | ForbiddenException | ConflictException | MethodNotAllowedException | NoContentException | UnauthorizedException | NetworkException | NotFoundException e) {
-            e.printStackTrace();
-        }
+//        UserController userController = new UserControllerImpl();
+//        try {
+//            userController
+//                    .updateToken(
+//                            authService.get().getAccessToken(),
+//                            token
+//                    );
+//        } catch (JSONException | ForbiddenException | ConflictException | MethodNotAllowedException | NoContentException | UnauthorizedException | NetworkException | NotFoundException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void openLoginActivity() {

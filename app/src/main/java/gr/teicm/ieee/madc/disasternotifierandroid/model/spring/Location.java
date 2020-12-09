@@ -1,6 +1,6 @@
 package gr.teicm.ieee.madc.disasternotifierandroid.model.spring;
 
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
 
 public class Location {
 
@@ -33,7 +33,7 @@ public class Location {
         this.longitude = longitude;
     }
 
-    @NonNull
+//    @NonNull
     @Override
     public String toString() {
         return getLatitude().toString().concat(" ").concat(getLongitude().toString());

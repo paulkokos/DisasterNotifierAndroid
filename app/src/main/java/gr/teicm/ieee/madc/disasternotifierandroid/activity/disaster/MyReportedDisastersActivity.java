@@ -2,9 +2,10 @@ package gr.teicm.ieee.madc.disasternotifierandroid.activity.disaster;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONException;
 
@@ -15,7 +16,6 @@ import java.util.List;
 import gr.teicm.ieee.madc.disasternotifierandroid.ActivityIntentStart;
 import gr.teicm.ieee.madc.disasternotifierandroid.R;
 import gr.teicm.ieee.madc.disasternotifierandroid.activity.CentralActivity;
-import gr.teicm.ieee.madc.disasternotifierandroid.activity.auth.LoginActivity;
 import gr.teicm.ieee.madc.disasternotifierandroid.controller.DisasterController;
 import gr.teicm.ieee.madc.disasternotifierandroid.controller.impl.DisasterControllerImpl;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
@@ -113,7 +113,7 @@ public class MyReportedDisastersActivity extends AppCompatActivity {
     }
 
     private void openLoginActivity() {
-        ActivityIntentStart.doTransition(MyReportedDisastersActivity.this, LoginActivity.class);
+//        ActivityIntentStart.doTransition(MyReportedDisastersActivity.this, LoginActivity.class);
 
     }
 

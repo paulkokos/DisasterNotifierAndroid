@@ -20,38 +20,38 @@ import gr.teicm.ieee.madc.disasternotifierandroid.service.RestStatusHandler;
 public class UserControllerImpl implements UserController {
     @Override
     public void updateLocation(String authorization, Double latitude, Double longitude) throws ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, JSONException, NoContentException {
-        NetworkService networkService = new NetworkService(HTTPMethods.PUT, AppConfig.APIMeLocation);
-
-        networkService.addHeader(new AbstractMap.SimpleEntry<>("Authorization", authorization));
-
-        networkService.addHeader(new AbstractMap.SimpleEntry<>("Accepts", "application/json"));
-        networkService.addHeader(new AbstractMap.SimpleEntry<>("Content-Type", "application/json"));
-
-        networkService.addBody("latitude", String.valueOf(latitude));
-        networkService.addBody("longitude", String.valueOf(longitude));
-
-        networkService.call();
-
-        RestStatusHandler.isOk(
-                networkService.getStatusCode()
-        );
+//        NetworkService networkService = new NetworkService(HTTPMethods.PUT, AppConfig.APIMeLocation);
+//
+//        networkService.addHeader(new AbstractMap.SimpleEntry<>("Authorization", authorization));
+//
+//        networkService.addHeader(new AbstractMap.SimpleEntry<>("Accepts", "application/json"));
+//        networkService.addHeader(new AbstractMap.SimpleEntry<>("Content-Type", "application/json"));
+//
+//        networkService.addBody("latitude", String.valueOf(latitude));
+//        networkService.addBody("longitude", String.valueOf(longitude));
+//
+//        networkService.call();
+//
+//        RestStatusHandler.isOk(
+//                networkService.getStatusCode()
+//        );
     }
 
     @Override
     public void updateToken(String authorization, String token) throws JSONException, ForbiddenException, MethodNotAllowedException, ConflictException, NetworkException, NotFoundException, UnauthorizedException, NoContentException {
-        NetworkService networkService = new NetworkService(HTTPMethods.PUT, AppConfig.APIMeToken);
-
-        networkService.addHeader(new AbstractMap.SimpleEntry<>("Authorization", authorization));
-
-        networkService.addHeader(new AbstractMap.SimpleEntry<>("Accepts", "application/json"));
-        networkService.addHeader(new AbstractMap.SimpleEntry<>("Content-Type", "application/json"));
-
-        networkService.addBody("firebaseToken", String.valueOf(token));
-
-        networkService.call();
-
-        RestStatusHandler.isOk(
-                networkService.getStatusCode()
-        );
+//        NetworkService networkService = new NetworkService(HTTPMethods.PUT, AppConfig.APIMeToken);
+//
+//        networkService.addHeader(new AbstractMap.SimpleEntry<>("Authorization", authorization));
+//
+//        networkService.addHeader(new AbstractMap.SimpleEntry<>("Accepts", "application/json"));
+//        networkService.addHeader(new AbstractMap.SimpleEntry<>("Content-Type", "application/json"));
+//
+//        networkService.addBody("firebaseToken", String.valueOf(token));
+//
+//        networkService.call();
+//
+//        RestStatusHandler.isOk(
+//                networkService.getStatusCode()
+//        );
     }
 }

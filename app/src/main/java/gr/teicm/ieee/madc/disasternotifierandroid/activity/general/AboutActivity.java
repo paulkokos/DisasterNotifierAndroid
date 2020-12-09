@@ -1,15 +1,14 @@
 package gr.teicm.ieee.madc.disasternotifierandroid.activity.general;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
-import gr.teicm.ieee.madc.disasternotifierandroid.ActivityIntentStart;
 import gr.teicm.ieee.madc.disasternotifierandroid.R;
-import gr.teicm.ieee.madc.disasternotifierandroid.activity.CentralActivity;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -59,8 +58,8 @@ public class AboutActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
     }
 
-    @Override
-    public void onBackPressed() {
-        ActivityIntentStart.doTransition(this, CentralActivity.class);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        ActivityIntentStart.doTransition(this, CentralActivity.class);
+//    }
 }

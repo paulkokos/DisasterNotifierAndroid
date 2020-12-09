@@ -3,11 +3,12 @@ package gr.teicm.ieee.madc.disasternotifierandroid.activity.auth;
 import android.app.AlertDialog;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -17,7 +18,6 @@ import java.io.IOException;
 
 import gr.teicm.ieee.madc.disasternotifierandroid.ActivityIntentStart;
 import gr.teicm.ieee.madc.disasternotifierandroid.R;
-import gr.teicm.ieee.madc.disasternotifierandroid.activity.CentralActivity;
 import gr.teicm.ieee.madc.disasternotifierandroid.controller.AuthController;
 import gr.teicm.ieee.madc.disasternotifierandroid.controller.impl.AuthControllerImpl;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void setEventHandlers() {
         register.setOnClickListener(registerClick());
-        login.setOnClickListener(loginClick());
+//        login.setOnClickListener(loginClick());
     }
 
     private void findUIObjects() {
@@ -88,9 +88,9 @@ public class RegisterActivity extends AppCompatActivity {
         login = findViewById(R.id.loginButton);
     }
 
-    private View.OnClickListener loginClick() {
-        return v -> ActivityIntentStart.doTransition(RegisterActivity.this, LoginActivity.class);
-    }
+//    private View.OnClickListener loginClick() {
+//        return v -> ActivityIntentStart.doTransition(RegisterActivity.this, LoginActivity.class);
+//    }
 
     private View.OnClickListener registerClick() {
         return v -> {
@@ -122,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
             try {
                 Auth register = registerAndGetAuth(location);
                 saveAuth(register);
-                openCentralActivity();
+//                openCentralActivity();
             } catch (JSONException | MethodNotAllowedException | NotFoundException | UnauthorizedException | ForbiddenException | IOException | NoContentException e) {
                 new AlertDialog
                         .Builder(RegisterActivity.this)
@@ -152,9 +152,9 @@ public class RegisterActivity extends AppCompatActivity {
         };
     }
 
-    private void openCentralActivity() {
-        ActivityIntentStart.doTransition(RegisterActivity.this, CentralActivity.class);
-    }
+//    private void openCentralActivity() {
+//        ActivityIntentStart.doTransition(RegisterActivity.this, CentralActivity.class);
+//    }
 
     private void saveAuth(Auth register) throws IOException {
         new AuthService(getFilesDir().getCanonicalPath(), register);

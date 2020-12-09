@@ -1,13 +1,11 @@
 package gr.teicm.ieee.madc.disasternotifierandroid.activity.disaster;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -24,10 +22,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.teicm.ieee.madc.disasternotifierandroid.ActivityIntentStart;
 import gr.teicm.ieee.madc.disasternotifierandroid.R;
-import gr.teicm.ieee.madc.disasternotifierandroid.activity.CentralActivity;
-import gr.teicm.ieee.madc.disasternotifierandroid.activity.auth.LoginActivity;
 import gr.teicm.ieee.madc.disasternotifierandroid.controller.DisasterController;
 import gr.teicm.ieee.madc.disasternotifierandroid.controller.impl.DisasterControllerImpl;
 import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
@@ -112,7 +107,7 @@ public class NearDisastersActivity extends AppCompatActivity implements OnMapRea
 
     @Override
     public void onBackPressed() {
-        ActivityIntentStart.doTransition(NearDisastersActivity.this, CentralActivity.class);
+//        ActivityIntentStart.doTransition(NearDisastersActivity.this, CentralActivity.class);
     }
 
     private CircleOptions generateCircle(Float latitude, Float longitude, Long radius, Integer color, Long zindex) {
@@ -252,17 +247,18 @@ public class NearDisastersActivity extends AppCompatActivity implements OnMapRea
     }
 
     private void openLoginActivity() {
-        ActivityIntentStart.doTransition(NearDisastersActivity.this, LoginActivity.class);
+//        ActivityIntentStart.doTransition(NearDisastersActivity.this, LoginActivity.class);
     }
 
     private boolean hasPermissions() {
-        int accessFineLocation = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-        int accessCoarseLocation = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+//        int accessFineLocation = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+//        int accessCoarseLocation = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
 
-        boolean accessFineLocationBool = accessFineLocation == PackageManager.PERMISSION_GRANTED;
-        boolean accessCoarseLocationBool = accessCoarseLocation == PackageManager.PERMISSION_GRANTED;
+//        boolean accessFineLocationBool = accessFineLocation == PackageManager.PERMISSION_GRANTED;
+//        boolean accessCoarseLocationBool = accessCoarseLocation == PackageManager.PERMISSION_GRANTED;
 
-        return (accessFineLocationBool && accessCoarseLocationBool);
+//        return (accessFineLocationBool && accessCoarseLocationBool);
+        return true;
     }
 
     boolean hasNotPermissions() {

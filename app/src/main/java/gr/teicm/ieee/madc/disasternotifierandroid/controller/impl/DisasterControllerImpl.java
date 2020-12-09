@@ -1,6 +1,6 @@
 package gr.teicm.ieee.madc.disasternotifierandroid.controller.impl;
 
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,12 +43,12 @@ public class DisasterControllerImpl implements DisasterController {
 
         JSONObject response = new JSONObject(call);
         JSONArray jsonArray = response.getJSONArray("data");
-
+//
         return getDisastersFromRawJSONArray(jsonArray);
 
     }
 
-    @NonNull
+//    @NonNull
     private List<Disaster> getDisastersFromRawJSONArray(JSONArray jsonArray) throws JSONException {
         List<Disaster> disasters = new ArrayList<>();
 

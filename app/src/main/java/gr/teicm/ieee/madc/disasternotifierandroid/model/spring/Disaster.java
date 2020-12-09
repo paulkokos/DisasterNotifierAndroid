@@ -1,6 +1,6 @@
 package gr.teicm.ieee.madc.disasternotifierandroid.model.spring;
 
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
 
 public class Disaster {
 
@@ -79,7 +79,7 @@ public class Disaster {
         this.greenRadius = greenRadius;
     }
 
-    @NonNull
+//    @NonNull
     @Override
     public String toString() {
         return getDisasterType().concat(" ").concat(getDisasterLocation().toString()).concat(" ");

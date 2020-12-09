@@ -22,4 +22,11 @@
     <string name="zero_meters">0 meters</string>
     <string name="select_your_near_distance_in_meters_for_near_map">Select your near distance in meters (for near map)</string>
     <string name="save">Save</string>
+    <string name="login">Login</string>
+    <string name="e_mail">e-Mail</string>
+    <string name="password">Password</string>
+    <string name="no_account_yet_create_one">No account yet? Create one</string>
+    <string name="submit">Submit</string>
+    <string name="string_submit" />
+    <string name="todo">TODO</string>
 </resources>

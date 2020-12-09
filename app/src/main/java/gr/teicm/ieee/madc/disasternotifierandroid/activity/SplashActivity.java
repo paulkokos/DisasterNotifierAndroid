@@ -4,17 +4,13 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 
-import java.io.IOException;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import gr.teicm.ieee.madc.disasternotifierandroid.ActivityIntentStart;
 import gr.teicm.ieee.madc.disasternotifierandroid.R;
 import gr.teicm.ieee.madc.disasternotifierandroid.activity.auth.LoginActivity;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
-import gr.teicm.ieee.madc.disasternotifierandroid.service.AuthService;
 import gr.teicm.ieee.madc.disasternotifierandroid.service.NetworkPolicyService;
 
 public class SplashActivity extends AppCompatActivity {
@@ -48,13 +44,13 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private boolean isAuthorized() {
-        try {
-            new AuthService(getFilesDir().getCanonicalPath());
+//        try {
+//            new AuthService(getFilesDir().getCanonicalPath());
             return true;
-        } catch (UnauthorizedException | IOException e) {
-            e.printStackTrace();
-            return false;
-        }
+//        } catch (UnauthorizedException | IOException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
     }
 
     private void askPermissions() {
@@ -84,7 +80,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == 100) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 

@@ -12,17 +12,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 
-import org.json.JSONException;
-
-import gr.teicm.ieee.madc.disasternotifierandroid.controller.impl.UserControllerImpl;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.ConflictException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.ForbiddenException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.MethodNotAllowedException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.NetworkException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.NoContentException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.NotFoundException;
-import gr.teicm.ieee.madc.disasternotifierandroid.exception.UnauthorizedException;
-
 public class GeoLocation extends Service implements LocationListener {
 
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 50; // update after 50meters update
@@ -147,18 +136,18 @@ public class GeoLocation extends Service implements LocationListener {
     @Override
     public void onLocationChanged(Location location) {
 
-        try {
-            AuthService authService = new AuthService(context.getFilesDir().getAbsolutePath());
-            (new UserControllerImpl())
-                    .updateLocation(
-                            authService.get().getAccessToken(),
-                            location.getLatitude(), location.getLongitude()
-                    );
-        } catch (UnauthorizedException | NetworkException | NotFoundException | MethodNotAllowedException | ConflictException | JSONException | ForbiddenException | NoContentException e) {
-            e.printStackTrace();
-        }
-
-        this.location = location;
+//        try {
+//            AuthService authService = new AuthService(context.getFilesDir().getAbsolutePath());
+//            (new UserControllerImpl())
+//                    .updateLocation(
+//                            authService.get().getAccessToken(),
+//                            location.getLatitude(), location.getLongitude()
+//                    );
+//        } catch (UnauthorizedException | NetworkException | NotFoundException | MethodNotAllowedException | ConflictException | JSONException | ForbiddenException | NoContentException e) {
+//            e.printStackTrace();
+//        }
+//
+//        this.location = location;
 
     }
 

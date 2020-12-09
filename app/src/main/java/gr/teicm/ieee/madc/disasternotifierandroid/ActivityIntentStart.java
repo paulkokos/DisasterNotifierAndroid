@@ -1,7 +1,8 @@
 package gr.teicm.ieee.madc.disasternotifierandroid;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 @SuppressWarnings("SameParameterValue")
 public class ActivityIntentStart {

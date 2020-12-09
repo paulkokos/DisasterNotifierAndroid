@@ -19,11 +19,11 @@ public class AuthService {
 
     public AuthService(String filesDir) throws UnauthorizedException {
         this.filesDir = filesDir;
-        try {
-            this.auth = load();
-        } catch (IOException | ClassNotFoundException e) {
-            throw new UnauthorizedException();
-        }
+//        try {
+//            this.auth = load();
+//        } catch (IOException | ClassNotFoundException e) {
+//            throw new UnauthorizedException();
+//        }
     }
 
     private void save() throws IOException {
@@ -31,9 +31,9 @@ public class AuthService {
         fileService.saveFile(filesDir + AppConfig.AuthFile, auth);
     }
 
-    private Auth load() throws IOException, ClassNotFoundException {
-        return (Auth) new FileService().readFile(filesDir + AppConfig.AuthFile);
-    }
+//    private Auth load() throws IOException, ClassNotFoundException {
+//        return (Auth) new FileService().readFile(filesDir + AppConfig.AuthFile);
+//    }
 
     public Auth get() {
         return auth;
